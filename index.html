@@ -5,10 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Checker</title>
+    <link rel="stylesheet" href="style/css/style.min.css">
 </head>
 <body>
     
+    <div class="page-wrapper">
+        <h1>Password Checker</h1>
+        <p>A password checker based on a workshop assignment during the JavaScript course.</p>
+        <div class="password-wrapper">
+            <div class="input-wrapper">
+                <div class="icon"><img src="images/lock.svg"></div>
+                <div class="input">
+                    <form id="passwordchecker">
+                        <input id="check" type="text" placeholder="Password">
+                        <button type="submit" id="submit">Check</button>
+                    </form>
+                </div>
+            </div>
+            <div class="feedback-wrapper">
+                <div class="feedback-bar"><div class="bar bad"></div></div>
+                <div class="feedback-text"><span class="bad">Too weak!</span></div>
+            </div>
+        </div>
+    </div>
 
-    <script src="passwordchecker.js"></script>
+    <script src="js/passwordchecker_v1.js"></script>
 </body>
 </html>
