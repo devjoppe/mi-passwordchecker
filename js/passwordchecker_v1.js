@@ -40,27 +40,46 @@ let numberOfTimes;
 
 myForm.addEventListener('submit', e => {
     e.preventDefault();
-    
+
     userInput = myForm.checktext.value;
     numberOfTimes = ifSpecialChars(userInput);
 });
+
+const bar = document.getElementById('bar');
+const barText = document.querySelector('.feedback-text > span')
 
 // Funktion som validerar inputen
 const passValidation = numberOfTimes => {
     console.log(userInput.length);
     if (userInput.length >=6 && numberOfTimes >= 2) {
         console.log("6, 2");
-        console.log("Welcome to the Metaverse");
+        bar.setAttribute('class', 'bar-ok');
+        bar.setAttribute('style', 'width: 50%;');
+        barText.setAttribute('class', 'ok');
+        barText.innerText = 'Your password Ok! You can do better.';
     } else if (userInput.length >= 8 && numberOfTimes >= 1) {
         console.log("8, 1");
-        console.log("Welcome to the Metaverse");
+        bar.setAttribute('class', 'bar-ok');
+        bar.setAttribute('style', 'width: 65%;');
+        barText.setAttribute('class', 'ok');
+        barText.innerText = 'Your password Ok! Use more number of characters.';
     } else if (userInput.length >= 12 && userInput.includes('-')) {
         console.log("12, -");
-        console.log("Welcome to the Metaverse");
-    } else if (userInput.length >= 16 ) {
+        bar.setAttribute('class', 'bar-good');
+        bar.setAttribute('style', 'width: 85%;');
+        barText.setAttribute('class', 'good');
+        barText.innerText = 'Great password!';
+    } else if (userInput.length >= 16) {
         console.log("16");
-        console.log("Welcome to the Metaverse");
+        bar.setAttribute('class', 'bar-good');
+        bar.setAttribute('style', 'width: 98%;');
+        barText.setAttribute('class', 'good');
+        barText.innerText = 'Awsome! No hacker will break this one.';
     } else {
-        console.log ("Skit ner dig");
+        bar.setAttribute('class', 'bar-bad');
+        bar.setAttribute('style', 'width: 25%;');
+        barText.setAttribute('class', 'bad');
+        barText.innerText = 'Your password is too weak! Try again.';
+        console.log ("Bad");
     }
 }
