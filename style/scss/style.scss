@@ -16,6 +16,7 @@ input[type="text"] {
     color: #303030;
     letter-spacing: 1px;
     height: inherit;
+    background: #fdfdfd;
     &:focus {
         outline: none;
     }
@@ -99,20 +100,6 @@ p {
         background: #f2f2f2;
         height: 8px;
         width: 100%;
-        >.bar {
-            &.good {
-                background: #37786c;
-            }
-            &.ok {
-                background: #98904d;
-            }
-            &.bad {
-                background: #984d4d;
-            }
-            width: 45%;
-            height: inherit;
-            display: inline-block;
-        }
     }
     .feedback-text {
         display: flex;
@@ -121,16 +108,38 @@ p {
         font-size: 18px;
         font-weight: 600;
         height: 100%;
-        span {
-            &.good {
-                color: #37786c;
-            }
-            &.ok {
-                color: #98904d;
-            }
-            &.bad {
-                color: #984d4d;
-            }
-        }
+    }
+}
+
+
+// Feedback info
+//Mixins
+@mixin color-bar {
+    height: inherit;
+    display: inline-block;
+}
+
+.bar-good {
+    background: #37786c;
+    @include color-bar;
+}
+.bar-ok {
+    background: #98904d;
+    @include color-bar;
+}
+.bar-bad {
+    background: #984d4d;
+    @include color-bar;
+}
+
+span {
+    &.good {
+        color: #37786c;
+    }
+    &.ok {
+        color: #98904d;
+    }
+    &.bad {
+        color: #984d4d;
     }
 }
