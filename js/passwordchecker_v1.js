@@ -16,8 +16,11 @@
 // password = "such-password-much-secure-very-long"; // giltigt
 
  const specialChars = [
-    "@", "$", "%", "*", "^", "<", ">", "?", "!", "(", ")", "[", "]", "{", "}", "'"
+    "@", "$", "%", "*", "^", "<", ">", "?", "!", "(", ")", "[", "]", "{", "}", "'", "-"
  ];
+
+ // Fångar upp tips
+ const tips = document.querySelector('.tips');
 
  // Funktion som hämtar in vad användaren anger i input och kontrollerar detta mot SpecialChars
 const ifSpecialChars = thePassword => {
@@ -51,25 +54,28 @@ const barText = document.querySelector('.feedback-text > span')
 // Funktion som validerar inputen
 const passValidation = numberOfTimes => {
     console.log(userInput.length);
-    if (userInput.length >=6 && numberOfTimes >= 2) {
+
+    passwordLength = userInput.length;
+
+    if (passwordLength >= 6 && passwordLength <= 7 && numberOfTimes >= 2) {
         console.log("6, 2");
         bar.setAttribute('class', 'bar-ok');
         bar.setAttribute('style', 'width: 50%;');
         barText.setAttribute('class', 'ok');
         barText.innerText = 'Your password Ok! You can do better.';
-    } else if (userInput.length >= 8 && numberOfTimes >= 1) {
+    } else if (passwordLength >= 8 && passwordLength <=11 && numberOfTimes >= 1) {
         console.log("8, 1");
         bar.setAttribute('class', 'bar-ok');
         bar.setAttribute('style', 'width: 65%;');
         barText.setAttribute('class', 'ok');
         barText.innerText = 'Your password Ok! Use more number of characters.';
-    } else if (userInput.length >= 12 && userInput.includes('-')) {
+    } else if ((passwordLength >= 12 && passwordLength <= 15) || (passwordLength >= 12 && passwordLength <= 15 && numberOfTimes >= 1)) {
         console.log("12, -");
         bar.setAttribute('class', 'bar-good');
         bar.setAttribute('style', 'width: 85%;');
         barText.setAttribute('class', 'good');
         barText.innerText = 'Great password!';
-    } else if (userInput.length >= 16) {
+    } else if ((passwordLength >= 16) || (passwordLength >= 16 && numberOfTimes >= 1)) {
         console.log("16");
         bar.setAttribute('class', 'bar-good');
         bar.setAttribute('style', 'width: 98%;');
@@ -79,7 +85,9 @@ const passValidation = numberOfTimes => {
         bar.setAttribute('class', 'bar-bad');
         bar.setAttribute('style', 'width: 25%;');
         barText.setAttribute('class', 'bad');
-        barText.innerText = 'Your password is too weak! Try again.';
+        barText.innerHTML = 'Your password is too weak!';
         console.log ("Bad");
+        tips.setAttribute('style', 'display: block;')
     }
 }
+

@@ -113,6 +113,14 @@ p {
 
 
 // Feedback info
+
+.tips {
+    display: none;
+    margin-top: 26px;
+    font-style: italic;
+    color: #c0c0c1;
+}
+
 //Mixins
 @mixin color-bar {
     height: inherit;
@@ -133,6 +141,8 @@ p {
 }
 
 span {
+    margin-top: 16px;
+    text-align: center;
     &.good {
         color: #37786c;
     }
